@@ -1,0 +1,15 @@
+services:
+  mqtt-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: inverter-mqtt-server
+
+    restart: unless-stopped
+
+    env_file:
+      - .env
+
+    ports:
+      - "1883:1883"
